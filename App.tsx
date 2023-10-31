@@ -28,16 +28,16 @@ export default function App() {
   };
 
   return (
-    <ScrollView style={{ height: '50%' }} contentContainerStyle={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.menuContainer}>
         <TouchableOpacity onPress={handleShowMortyInfo} style={styles.menuOption}>
-          <Text>Morty Smith</Text>
+          <Text style={styles.menuText}>Morty Smith</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleShowRickInfo} style={styles.menuOption}>
-          <Text>Rick Sanchez</Text>
+          <Text style={styles.menuText}>Rick Sanchez</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleShowQR} style={styles.menuOption}>
-          <Text>Mi Repositorio</Text>
+          <Text style={styles.menuText}>Mi Repositorio</Text>
         </TouchableOpacity>
       </View>
       {displayMyQR ? <QRCodeComponent /> : null}
@@ -48,58 +48,24 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
- 
+  container: {
+    flex: 1,
+    backgroundColor: '#191919',
+  },
   menuContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'darkgray',
+    backgroundColor: '#333333', 
+    padding: 20,
   },
   menuOption: {
     flex: 1,
     padding: 20,
     alignItems: 'center',
   },
-  container: {
-    flexGrow: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  topContainer: {
-    height: '15%',
-    paddingTop: 50,
-    width: '100%',
-  },
-  firsttoprowContainer: {
-    backgroundColor: 'gray',
-    textAlign: 'center',
+  menuText: {
+    color: '#66D1A3', 
+    fontSize: 18,
     fontWeight: 'bold',
-    textAlignVertical: 'center',
-    fontSize: 30,
-  },
-  rowTopSecondContainer: {
-    flexDirection: 'row',
-    backgroundColor: 'darkgray',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonruta: {
-    width: '50%',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-  },
-  shadoxboxing: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.43,
-    shadowRadius: 9.51,
-    elevation: 15,
   },
 });

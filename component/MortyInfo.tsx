@@ -51,13 +51,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   hobby: {
-    color: 'darkred',
+    color: '#66D1A3',
     fontWeight: 'bold',
     fontStyle: 'italic',
     fontSize: 16,
-    backgroundColor: 'silver',
+    backgroundColor: 'gray',
     padding: 20,
-    borderColor: 'black',
+    borderColor: '#black', 
+
     borderWidth: 1,
     borderStyle: 'dashed',
     textAlign: 'center',
