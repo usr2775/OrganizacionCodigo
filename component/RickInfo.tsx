@@ -1,32 +1,28 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const hobbies = [
-  "Salir a pasear",
-  "Senderismo",
-  "Ir a la playita",
-  "Domingos de misa",
-  "La guitarrita",
-  "El monte con lluvia",
-  "Viajar",
-  "Música variadita",
-  "Anime",
-  "Ducharme",
-  "Videojuegos",
-  "Ir de cenar romántica",
+const rickHobbies = [
+  "Ciencia",
+  "Aventuras interdimensionales",
+  "Inventar dispositivos locos",
+  "Ver programas de televisión",
+  "Beber alcohol",
+  "Experimentos peligrosos",
+  "Explorar el multiverso",
+  "Viajar a mundos alienígenas",
 ];
 
-const UserInfo = () => {
+const RickInfo = () => {
   return (
     <View>
       <View style={styles.row}>
-        <Image style={styles.avatar} source={require('../assets/SofyanAmrabat.jpg')} />
+        <Image style={styles.avatar} source={require('../assets/ri.png')} />
         <View style={styles.descriptionContainer}>
-          <Text style={styles.descriptionTitle}>Descripción sobre mí!</Text>
-          <Text>Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar prácticas para mis queridos alumnos</Text>
+          <Text style={styles.descriptionTitle}>Descripción sobre Rick</Text>
+          <Text>Rick Sánchez es un científico loco, inventor y aventurero interdimensional. Le gusta la ciencia, explorar el multiverso y aventurarse en todo tipo de situaciones peligrosas.</Text>
         </View>
       </View>
-      {hobbies.map((hobby, index) => (
+      {rickHobbies.map((hobby, index) => (
         <Text key={index} style={styles.hobby}>
           {hobby}
         </Text>
@@ -71,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserInfo;
+export default RickInfo;

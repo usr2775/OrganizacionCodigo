@@ -1,37 +1,65 @@
 import React, { useState } from 'react';
-import { Button, Pressable, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import QRCode from 'react-native-qrcode-svg';
+import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import MortyInfo from './component/MortyInfo';
+import RickInfo from './component/RickInfo';
 import QRCodeComponent from './component/QRCode';
-import UserInfo from './component/UserInfo';
 
 export default function App() {
-  const [displayMyQR, setDisplayMyQR] = useState(true);
+  const [displayMyQR, setDisplayMyQR] = useState(false);
+  const [displayMortyInfo, setDisplayMortyInfo] = useState(false);
+  const [displayRickInfo, setDisplayRickInfo] = useState(false);
 
   const handleShowQR = () => {
     setDisplayMyQR(true);
+    setDisplayMortyInfo(false);
+    setDisplayRickInfo(false);
   };
 
-  const handleShowRepo = () => {
+  const handleShowMortyInfo = () => {
     setDisplayMyQR(false);
+    setDisplayMortyInfo(true);
+    setDisplayRickInfo(false);
+  };
+
+  const handleShowRickInfo = () => {
+    setDisplayMyQR(false);
+    setDisplayMortyInfo(false);
+    setDisplayRickInfo(true);
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.topContainer}>
-        <Text style={styles.firsttoprowContainer}>Mi Aplicación de Portafolio</Text>
-        <View style={styles.rowTopSecondContainer}>
-          <Pressable style={{ ...styles.buttonruta, ...styles.shadoxboxing }} onPress={handleShowQR}>
-            <Text style={styles.buttonText}>Mi info</Text>
-          </Pressable>
-          <Button onPress={handleShowRepo} title="Mi Repositorio" color="lightgray" accessibilityLabel="Un botón para el código QR" />
-        </View>
+    <ScrollView style={{ height: '50%' }} contentContainerStyle={styles.container}>
+      <View style={styles.menuContainer}>
+        <TouchableOpacity onPress={handleShowMortyInfo} style={styles.menuOption}>
+          <Text>Morty Smith</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleShowRickInfo} style={styles.menuOption}>
+          <Text>Rick Sanchez</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleShowQR} style={styles.menuOption}>
+          <Text>Mi Repositorio</Text>
+        </TouchableOpacity>
       </View>
-      {displayMyQR ? <UserInfo /> : <QRCodeComponent />}
+      {displayMyQR ? <QRCodeComponent /> : null}
+      {displayMortyInfo ? <MortyInfo /> : null}
+      {displayRickInfo ? <RickInfo /> : null}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+ 
+  menuContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'darkgray',
+  },
+  menuOption: {
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+  },
   container: {
     flexGrow: 1,
     backgroundColor: '#fff',
