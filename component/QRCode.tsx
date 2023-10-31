@@ -1,20 +1,27 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import QRCode from 'react-native-qrcode-svg';
+import { View, Text, StyleSheet } from 'react-native';
+import QRCodeSvg from 'react-native-qrcode-svg';
 
 const QRCodeComponent = () => {
   return (
-    <View style={styles.centerQRCode}>
-      <QRCode value="https://github.com/adhernea" />
+    <View style={styles.qrCodeContainer}>
+      <Text style={styles.qrCodeLabel}>Escanea el código QR para acceder a mi perfil de GitHub</Text>
+      <QRCodeSvg value="https://github.com/adhernea" size={200} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  centerQRCode: {
+  qrCodeContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  qrCodeLabel: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginTop: 20,
+    color: 'gray',
   }
 });
 
